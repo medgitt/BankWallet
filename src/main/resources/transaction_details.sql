@@ -1,0 +1,12 @@
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (1, 5000, 'For Saving','CREDIT', 'TRAN43a3d653-344c-4480-95bf-4c312706d62b');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (1, 5000, 'For Saving','CREDIT', 'TRAN6a00d696-9a48-4c76-941c-3bd7b8f51990');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (1, 5000, 'For Purchasing','DEBIT', 'TRAN8e4f52e4-20bf-490a-a7cc-47157aa7a691');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (1, 5000, 'For Saving','CREDIT', 'TRANa4642f4f-4be0-474c-8935-86b5f96954ba');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (2, 5000, 'For Saving','CREDIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c41');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (2, 3000, 'For Saving','CREDIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c42');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (3, 6000, 'For Saving','CREDIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c51');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (3, 1000, 'For Saving','DEBIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c52');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (4, 7000, 'For Saving','DEBIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c53');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (4, 22000, 'For Saving','CREDIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c54');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (5, 34000, 'For Saving','CREDIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c55');
+insert into transaction_details (profile_id, transaction_amount, transaction_details, transaction_type, transaction_id) values (5, 5000, 'For Saving','DEBIT', 'TRAN8fa76740-3bf6-4040-ab27-c55572055c56');

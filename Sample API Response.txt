@@ -1,0 +1,852 @@
+Application Name: Bank-Wallet
+
+A) Profiles 
+
+1) API Name : get_all_profiles (To fetch all the account data )
+
+GET :
+URL : http://localhost:8080/api/profiles/get_all_profiles
+
+Response :
+{
+    "code": 200,
+    "status": "success",
+    "message": "Successfully fetched all profiles",
+    "data": [
+        {
+            "id": 1,
+            "account_number": 1234567,
+            "name": "Vagmi",
+            "address": "Sweden",
+            "contact_number": "8870",
+            "email_id": "vaghu@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": true,
+            "balance": 10000.0,
+            "created_at": "2022-08-21T10:10:33.915+00:00",
+            "updated_at": "2022-08-21T10:10:33.915+00:00"
+        },
+        {
+            "id": 2,
+            "account_number": 7654321,
+            "name": "Medha",
+            "address": "Sweden",
+            "contact_number": "7088",
+            "email_id": "medha@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": true,
+            "balance": 15000.0,
+            "created_at": "2022-08-21T10:10:33.919+00:00",
+            "updated_at": "2022-08-21T10:10:33.919+00:00"
+        },
+        {
+            "id": 3,
+            "account_number": 1234577,
+            "name": "Duraee",
+            "address": "Sweden",
+            "contact_number": "8470",
+            "email_id": "duree@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": true,
+            "balance": 20000.0,
+            "created_at": "2022-08-21T10:10:33.920+00:00",
+            "updated_at": "2022-08-21T10:10:33.920+00:00"
+        },
+        {
+            "id": 4,
+            "account_number": 1234568,
+            "name": "Binita",
+            "address": "Sweden",
+            "contact_number": "8770",
+            "email_id": "bini@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": true,
+            "balance": 10050.0,
+            "created_at": "2022-08-21T10:10:33.921+00:00",
+            "updated_at": "2022-08-21T10:10:33.921+00:00"
+        },
+        {
+            "id": 5,
+            "account_number": 1235669,
+            "name": "Nanu",
+            "address": "Sweden",
+            "contact_number": "9870",
+            "email_id": "nanu@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": true,
+            "balance": 23000.0,
+            "created_at": "2022-08-21T10:10:33.921+00:00",
+            "updated_at": "2022-08-21T10:10:33.921+00:00"
+        }
+    ]
+}
+
+2) API Name : Get Profiles by id: (To fetch the account data based on ID)
+
+GET :
+URL : http://localhost:8080/api/profiles/get_profile_by_id/1
+
+{
+    "code": 200,
+    "status": "success",
+    "message": "Successfully fetched profile of 1",
+    "data": {
+        "id": 1,
+        "account_number": 1234567,
+        "name": "Vagmi",
+        "address": "Sweden",
+        "contact_number": "8870",
+        "email_id": "vaghu@gmail.com",
+        "account_type": "Savings",
+        "bank_name": "MyBank",
+        "branch_name": "SWEDEN",
+        "is_active": true,
+        "balance": 10000.0,
+        "created_at": "2022-08-21T10:10:33.915+00:00",
+        "updated_at": "2022-08-21T10:10:33.915+00:00"
+    }
+}
+
+For incorrect ID entered:
+
+Response:
+
+{
+    "code": 204,
+    "status": "success",
+    "message": "Profile not found with id : '12'",
+    "data": null
+}
+
+
+
+3) API Name : Get Profile by Account Number
+
+GET :
+URL: http://localhost:8080/api/profiles/get_profile_by_account_number/1234567
+{
+    "code": 200,
+    "status": "success",
+    "message": "Successfully fetched profile of 1234567",
+    "data": {
+        "id": 1,
+        "account_number": 1234567,
+        "name": "Vagmi",
+        "address": "Sweden",
+        "contact_number": "8870",
+        "email_id": "vaghu@gmail.com",
+        "account_type": "Savings",
+        "bank_name": "MyBank",
+        "branch_name": "SWEDEN",
+        "is_active": true,
+        "balance": 10000.0,
+        "created_at": "2022-08-21T10:10:33.915+00:00",
+        "updated_at": "2022-08-21T10:10:33.915+00:00"
+    }
+}
+
+If wrong account number:
+Response:
+{
+    "code": 204,
+    "status": "success",
+    "message": "Profile not found with account_number : '12345'",
+    "data": null
+}
+
+
+4) API Name : Create Profile
+
+POST Mapping :
+URL: http://localhost:8080/api/profiles/create_profile
+
+Response : 
+
+{
+    "code": 201,
+    "status": "success",
+    "message": "Profile Created Successfully.",
+    "data": {
+        "id": 6,
+        "account_number": 435675,
+        "name": "test",
+        "address": "US",
+        "contact_number": "3425",
+        "email_id": "test@gmail.com",
+        "account_type": "Savings",
+        "bank_name": "MyBank",
+        "branch_name": "USA",
+        "is_active": true,
+        "balance": 20000.0,
+        "created_at": null,
+        "updated_at": null
+    }
+}
+
+If Account Number already Present:
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "The account number is already available. Account Number : '435675'",
+    "data": null
+}
+
+
+5) Update Address by Account Number
+
+PUT Mapping :
+URL : http://localhost:8080/api/profiles/update_address/1234567?address=US
+
+Response :
+{
+    "code": 200,
+    "status": "success",
+    "message": "Profile Updated Successfully.",
+    "data": {
+        "id": 1,
+        "account_number": 1234567,
+        "name": "Vagmi",
+        "address": "US",
+        "contact_number": "8870",
+        "email_id": "vaghu@gmail.com",
+        "account_type": "Savings",
+        "bank_name": "MyBank",
+        "branch_name": "SWEDEN",
+        "is_active": true,
+        "balance": 10000.0,
+        "created_at": "2022-08-21T10:10:33.915+00:00",
+        "updated_at": "2022-08-21T10:10:33.915+00:00"
+    }
+}
+
+If Account Number is invalid:
+Response:
+
+{
+    "code": 404,
+    "status": "error",
+    "message": "The account number is not available. Account Number : '123456'",
+    "data": null
+}
+
+
+
+6) API Name : Update Contact Number by Account Number
+
+PUT Mapping : 
+
+URL : http://localhost:8080/api/profiles/update_contact_number/1234567?contact_number=887034
+
+Response  : 
+
+{
+    "code": 200,
+    "status": "success",
+    "message": "Profile Updated Successfully.",
+    "data": {
+        "id": 1,
+        "account_number": 1234567,
+        "name": "Vagmi",
+        "address": "US",
+        "contact_number": "887034",
+        "email_id": "vaghu@gmail.com",
+        "account_type": "Savings",
+        "bank_name": "MyBank",
+        "branch_name": "SWEDEN",
+        "is_active": true,
+        "balance": 10000.0,
+        "created_at": "2022-08-21T10:10:33.915+00:00",
+        "updated_at": "2022-08-21T10:10:33.915+00:00"
+    }
+}
+
+If Account Number is invalid:
+Response:
+
+{
+    "code": 404,
+    "status": "error",
+    "message": "The account number is not available. Account Number : '123456'",
+    "data": null
+}
+
+
+
+7) API Name : Update Email ID by Account Number
+
+PUT Mapping :
+
+URL : http://localhost:8080/api/profiles/update_email_id/1234567?email_id=ddre@gmail.com
+
+Response :
+
+{
+    "code": 200,
+    "status": "success",
+    "message": "Profile Updated Successfully.",
+    "data": {
+        "id": 1,
+        "account_number": 1234567,
+        "name": "Vagmi",
+        "address": "US",
+        "contact_number": "887034",
+        "email_id": "ddre@gmail.com",
+        "account_type": "Savings",
+        "bank_name": "MyBank",
+        "branch_name": "SWEDEN",
+        "is_active": true,
+        "balance": 10000.0,
+        "created_at": "2022-08-21T10:10:33.915+00:00",
+        "updated_at": "2022-08-21T10:10:33.915+00:00"
+    }
+}
+
+If Account Number is invalid:
+Response:
+
+{
+    "code": 404,
+    "status": "error",
+    "message": "The account number is not available. Account Number : '123456'",
+    "data": null
+}
+
+
+8) API Name : Get the balance by Account Number
+
+GET Mapping : 
+
+URL : http://localhost:8080/api/profiles/get_balance_by_account_number/1234567
+
+Response : 
+{
+    "code": 200,
+    "status": "success",
+    "message": "Successfully fetched the balance amount of account number : 1234567",
+    "data": 10000.0
+}
+
+
+9) API Name : Close Account by AccountNumber
+
+PUT Mapping :
+
+URL: http://localhost:8080/api/profiles/close_account/1234567
+
+Response : 
+{
+    "code": 200,
+    "status": "success",
+    "message": "Profile Updated Successfully.",
+    "data": {
+        "id": 1,
+        "account_number": 1234567,
+        "name": "Vagmi",
+        "address": "US",
+        "contact_number": "887034",
+        "email_id": "ddre@gmail.com",
+        "account_type": "Savings",
+        "bank_name": "MyBank",
+        "branch_name": "SWEDEN",
+        "is_active": false,
+        "balance": 10000.0,
+        "created_at": "2022-08-21T10:10:33.915+00:00",
+        "updated_at": "2022-08-21T10:10:33.915+00:00"
+    }
+}
+
+10) API Name : Get All closed account
+
+GET Mapping :
+
+URL : http://localhost:8080/api/profiles/get_all_closed_account
+
+Response :
+{
+    "code": 200,
+    "status": "success",
+    "message": "Successfully fetched all closed accounts",
+    "data": [
+        {
+            "id": 1,
+            "account_number": 1234567,
+            "name": "Vagmi",
+            "address": "US",
+            "contact_number": "887034",
+            "email_id": "ddre@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": false,
+            "balance": 10000.0,
+            "created_at": "2022-08-21T10:10:33.915+00:00",
+            "updated_at": "2022-08-21T10:10:33.915+00:00"
+        },
+        {
+            "id": 6,
+            "account_number": 435675,
+            "name": "test",
+            "address": "US",
+            "contact_number": "3425",
+            "email_id": "test@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "USA",
+            "is_active": false,
+            "balance": 20000.0,
+            "created_at": null,
+            "updated_at": null
+        }
+    ]
+}
+      
+
+11) API Name : Delete Account
+
+DELETE Mapping : 
+
+URL: http://localhost:8080/api/profiles/delete_account/435675
+
+
+Response:
+
+{
+    "code": 200,
+    "status": "success",
+    "message": "Profile Deleted Successfully.",
+    "data": null
+}
+
+12) API Name : Create Transaction by Profile ID (Account ID)
+
+POST Mapping :
+
+URL : http://localhost:8080/api/transactions/create_transaction_by_id
+
+REQUEST : {"profile_id":1, "transaction_type":"CREDIT", "transaction_amount":"500", "transaction_details":"Saving"
+}
+
+Response :
+{
+    "code": 201,
+    "status": "success",
+    "message": "Your Transaction Details",
+    "data": {
+        "id": 13,
+        "profile_id": null,
+        "transaction_id": "TRANce513be9-29ef-4266-9bce-dc775078cdb1",
+        "transaction_type": "CREDIT",
+        "transaction_amount": 500.0,
+        "transaction_details": "Saving",
+        "transaction_date": null,
+        "profile": {
+            "id": 1,
+            "account_number": 1234567,
+            "name": "Vagmi",
+            "address": "US",
+            "contact_number": "887034",
+            "email_id": "ddre@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": false,
+            "balance": 10500.0,
+            "created_at": "2022-08-21T10:10:33.915+00:00",
+            "updated_at": "2022-08-21T10:10:33.915+00:00"
+        }
+    }
+}
+
+
+Error Handler:
+
+If you give other than Credit or debit in Transaction type. then
+
+Request:
+{"profile_id":1, "transaction_type":"CRED", "transaction_amount":"450", "transaction_details":"Saving"
+}
+
+Response:
+
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Invalid Transaction Type. Please try CREDIT or DEBIT. You tried : 'CRED'",
+    "data": null
+}
+
+Response if the amount and Transaction Type entered is invalid :
+
+Request:
+{"profile_id":1, "transaction_type":"CREDIT", "transaction_amount":"0", "transaction_details":"Saving"
+}
+
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Invalid Amount. You tried  : '0.0'",
+    "data": null
+}
+
+
+
+
+If entered amount exceeds the balance amount then,
+
+Request:
+{"profile_id":1, "transaction_type":"DEBIT", "transaction_amount":"25000", "transaction_details":"Saving"
+}
+
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Insufficient Balance. You have  : '10500.0'",
+    "data": null
+}
+
+13) API Name : Transaction Detail by Account Number
+
+URL : http://localhost:8080/api/transactions/create_transaction
+
+Request:
+{"transaction_type":"DEBIT", "transaction_amount":"2000", "transaction_details":"Saving", "account_number":1234567
+}
+
+Response:
+{
+    "code": 201,
+    "status": "success",
+    "message": "Your Transaction Details",
+    "data": {
+        "id": 14,
+        "profile_id": null,
+        "transaction_id": "TRANa28bc9ea-63d2-4d92-aa57-b5a7c1617f8a",
+        "transaction_type": "DEBIT",
+        "transaction_amount": 2000.0,
+        "transaction_details": "Saving",
+        "transaction_date": null,
+        "profile": {
+            "id": 1,
+            "account_number": 1234567,
+            "name": "Vagmi",
+            "address": "US",
+            "contact_number": "887034",
+            "email_id": "ddre@gmail.com",
+            "account_type": "Savings",
+            "bank_name": "MyBank",
+            "branch_name": "SWEDEN",
+            "is_active": false,
+            "balance": 8500.0,
+            "created_at": "2022-08-21T10:10:33.915+00:00",
+            "updated_at": "2022-08-21T10:10:33.915+00:00"
+        }
+    }
+}
+
+Error Handlerr
+If you enter wrong account number
+
+Request:
+{"transaction_type":"DEBIT", "transaction_amount":"2000", "transaction_details":"Saving", "account_number":12345
+}
+
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Please enter valid account number. You entered  : '12345'",
+    "data": null
+}
+
+If you didn't provide account number
+Request:
+{"transaction_type":"DEB", "transaction_amount":"2000", "transaction_details":"Saving"}
+
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Please enter account number. : ''",
+    "data": null
+}
+If you give other than Credit or debit in Transaction type. then
+
+Request:
+{"transaction_type":"DEB", "transaction_amount":"2000", "transaction_details":"Saving", "account_number":1234567
+}
+
+
+
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Invalid Transaction Type. Please try CREDIT or DEBIT. You tried : 'DEB'",
+    "data": null
+}
+
+If you give invalid amount, then
+
+Request:
+
+{"transaction_type":"DEBIT", "transaction_amount":"0", "transaction_details":"Saving", "account_number":1234567
+}
+
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Invalid Amount. You tried  : '0.0'",
+    "data": null
+}
+
+If you give more than your balance amount then,
+
+
+{"transaction_type":"DEBIT", "transaction_amount":"23000", "transaction_details":"Saving", "account_number":1234567
+}
+
+Response:
+{
+    "code": 409,
+    "status": "error",
+    "message": "Transaction Denied!! Insufficient Balance. You have  : '6000.0'",
+    "data": null
+}
+
+
+
+14) Get All Transaction History By Account Number
+
+GET :
+
+URL : http://localhost:8080/api/transactions/get_transaction_by_account_number/1234567
+
+Response :
+{
+    "code": 200,
+    "status": "success",
+    "message": "Successfully fetched profile of 1234567",
+    "data": [
+        {
+            "id": 1,
+            "profile_id": 1,
+            "transaction_id": "TRAN43a3d653-344c-4480-95bf-4c312706d62b",
+            "transaction_type": "CREDIT",
+            "transaction_amount": 5000.0,
+            "transaction_details": "For Saving",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        },
+        {
+            "id": 2,
+            "profile_id": 1,
+            "transaction_id": "TRAN6a00d696-9a48-4c76-941c-3bd7b8f51990",
+            "transaction_type": "CREDIT",
+            "transaction_amount": 5000.0,
+            "transaction_details": "For Saving",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        },
+        {
+            "id": 3,
+            "profile_id": 1,
+            "transaction_id": "TRAN8e4f52e4-20bf-490a-a7cc-47157aa7a691",
+            "transaction_type": "DEBIT",
+            "transaction_amount": 5000.0,
+            "transaction_details": "For Purchasing",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        },
+        {
+            "id": 4,
+            "profile_id": 1,
+            "transaction_id": "TRANa4642f4f-4be0-474c-8935-86b5f96954ba",
+            "transaction_type": "CREDIT",
+            "transaction_amount": 5000.0,
+            "transaction_details": "For Saving",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        },
+        {
+            "id": 13,
+            "profile_id": 1,
+            "transaction_id": "TRANce513be9-29ef-4266-9bce-dc775078cdb1",
+            "transaction_type": "CREDIT",
+            "transaction_amount": 500.0,
+            "transaction_details": "Saving",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        },
+        {
+            "id": 14,
+            "profile_id": 1,
+            "transaction_id": "TRANa28bc9ea-63d2-4d92-aa57-b5a7c1617f8a",
+            "transaction_type": "DEBIT",
+            "transaction_amount": 2000.0,
+            "transaction_details": "Saving",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        }
+    ]
+}
+
+
+15) Get All Transaction History By Account Number and Transaction type
+
+GET :
+URL : http://localhost:8080/api/transactions/get_transaction_by_account_number_and_type/1234567/DEBIT
+
+Response :
+{
+    "code": 200,
+    "status": "success",
+    "message": "Successfully fetched profile of 1234567",
+    "data": [
+        {
+            "id": 3,
+            "profile_id": 1,
+            "transaction_id": "TRAN8e4f52e4-20bf-490a-a7cc-47157aa7a691",
+            "transaction_type": "DEBIT",
+            "transaction_amount": 5000.0,
+            "transaction_details": "For Purchasing",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        },
+        {
+            "id": 14,
+            "profile_id": 1,
+            "transaction_id": "TRANa28bc9ea-63d2-4d92-aa57-b5a7c1617f8a",
+            "transaction_type": "DEBIT",
+            "transaction_amount": 2000.0,
+            "transaction_details": "Saving",
+            "transaction_date": null,
+            "profile": {
+                "id": 1,
+                "account_number": 1234567,
+                "name": "Vagmi",
+                "address": "US",
+                "contact_number": "887034",
+                "email_id": "ddre@gmail.com",
+                "account_type": "Savings",
+                "bank_name": "MyBank",
+                "branch_name": "SWEDEN",
+                "is_active": false,
+                "balance": 8500.0,
+                "created_at": "2022-08-21T10:10:33.915+00:00",
+                "updated_at": "2022-08-21T10:10:33.915+00:00"
+            }
+        }
+    ]
+}
